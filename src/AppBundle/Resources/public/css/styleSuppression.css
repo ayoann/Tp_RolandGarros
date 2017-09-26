@@ -1,0 +1,30 @@
+
+  html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }
+     
+body{
+  list-style-type: none;
+  overflow: hidden;
+}
+
+#list{
+  width: 500px;
+  height: 60vh;
+  overflow: auto;
+  padding-left: 10px !important;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#left { float:left; }
+#right { float:right; }
+
+h3{
+  text-align: center
+}
