@@ -1,0 +1,26 @@
+#rectangle {
+	width: 450px;
+	/*height: 230px;*/
+
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: lightgrey;
+
+	vertical-align: middle;
+}
+
+body, html {
+	height: 100%;
+}
+
+#mainBlock {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	height: 100% !important;
+}
+
+#title {
+	font-weight: bold;
+	margin-left: 15px
+}
