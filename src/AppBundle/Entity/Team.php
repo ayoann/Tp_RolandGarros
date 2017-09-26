@@ -21,14 +21,29 @@ class Team
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
+
+
     private $id;
 
     /**
      * @var Collection
-     * 
      * @ORM\OneToMany(targetEntity="Score", mappedBy="team")
      */
     private $scores;
+
+     /**
+     * @ORM\ManyToMany(targetEntity="Player", inversedBy="players")
+     * @ORM\JoinTable(name="team_players")
+     */
+    private $players;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->players = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -38,14 +53,6 @@ class Team
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->scores = new ArrayCollection();
     }
 
     /**
@@ -80,5 +87,39 @@ class Team
     public function getScores()
     {
         return $this->scores;
+    }
+
+    /**
+     * Add player
+     *
+     * @param Player $player
+     *
+     * @return Team
+     */
+    public function addPlayer(Player $player)
+    {
+        $this->players[] = $player;
+
+        return $this;
+    }
+
+    /**
+     * Remove player
+     *
+     * @param Player $player
+     */
+    public function removePlayer(Player $player)
+    {
+        $this->players->removeElement($player);
+    }
+
+    /**
+     * Get players
+     *
+     * @return Collection
+     */
+    public function getPlayers()
+    {
+        return $this->players;
     }
 }
