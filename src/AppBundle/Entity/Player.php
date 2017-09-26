@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Player extends Person
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_player", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
     /**
      * @var bool
      *
@@ -42,16 +34,6 @@ class Player extends Person
      * @ORM\JoinColumn(name="nationality_id", referencedColumnName="id_nationality")
      */
     private $nationality;
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set female
@@ -81,13 +63,13 @@ class Player extends Person
      */
     public function __construct()
     {
-        $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->teams = new ArrayCollection();
     }
 
     /**
      * Add team
      *
-     * @param \AppBundle\Entity\Team $team
+     * @param Team $team
      *
      * @return Player
      */
@@ -101,7 +83,7 @@ class Player extends Person
     /**
      * Remove team
      *
-     * @param \AppBundle\Entity\Team $team
+     * @param Team $team
      */
     public function removeTeam(Team $team)
     {
@@ -111,7 +93,7 @@ class Player extends Person
     /**
      * Get teams
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getTeams()
     {
@@ -121,7 +103,7 @@ class Player extends Person
     /**
      * Set nationality
      *
-     * @param \AppBundle\Entity\Nationality $nationality
+     * @param Nationality $nationality
      *
      * @return Player
      */
@@ -135,7 +117,7 @@ class Player extends Person
     /**
      * Get nationality
      *
-     * @return \AppBundle\Entity\Nationality
+     * @return Nationality
      */
     public function getNationality()
     {
