@@ -16,7 +16,7 @@ class Player
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id_player", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -40,7 +40,7 @@ class Player
      * @var string
      *
      * @ORM\ManyToOne(targetEntity="Nationality")
-     * @ORM\JoinColumn(name="nationality_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="nationality_id", referencedColumnName="id_nationality")
      */
     private $nationality;
 
