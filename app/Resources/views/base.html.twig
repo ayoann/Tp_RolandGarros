@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Roland Garros</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    {% block stylesheet %}{% endblock %}
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper deep-orange lighten-1">
+        <img src=".{{ asset('bundles/app/img/logo_60px.png') }}" class="brand-logo"/>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                {% block nav %}{% endblock %}
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container" id="mainBlock">
+    {% block body %}{% endblock %}
+</div>
+{% block javascript %}{% endblock %}
+</body>
 </html>
