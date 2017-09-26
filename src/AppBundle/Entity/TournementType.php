@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TournementType
  *
- * @ORM\Table(name="tournement_type")
+ * @ORM\Table(name="rg_tournement_type")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TournementTypeRepository")
  */
 class TournementType

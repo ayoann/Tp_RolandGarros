@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TennisMatch
  *
- * @ORM\Table(name="tnnis_match")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\TnnisMatchRepository")
+ * @ORM\Table(name="rg_tennis_match")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TennisMatchRepository")
  */
 class TennisMatch
 {

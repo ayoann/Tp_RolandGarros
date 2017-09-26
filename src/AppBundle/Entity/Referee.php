@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Referee
  *
- * @ORM\Table(name="referee")
+ * @ORM\Table(name="rg_referee")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RefereeRepository")
  */
 class Referee
