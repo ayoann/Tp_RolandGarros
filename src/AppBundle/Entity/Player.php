@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,6 +29,20 @@ class Player
      */
     private $female;
 
+    /**
+     * @var Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Team", mappedBy="teams")
+     */
+    private $teams;
+
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Nationality")
+     * @ORM\JoinColumn(name="nationality_id", referencedColumnName="id")
+     */
+    private $nationality;
 
     /**
      * Get id
@@ -62,5 +77,69 @@ class Player
     {
         return $this->female;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add team
+     *
+     * @param \AppBundle\Entity\Team $team
+     *
+     * @return Player
+     */
+    public function addTeam(Team $team)
+    {
+        $this->teams[] = $team;
+
+        return $this;
+    }
+
+    /**
+     * Remove team
+     *
+     * @param \AppBundle\Entity\Team $team
+     */
+    public function removeTeam(Team $team)
+    {
+        $this->teams->removeElement($team);
+    }
+
+    /**
+     * Get teams
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTeams()
+    {
+        return $this->teams;
+    }
+
+    /**
+     * Set nationality
+     *
+     * @param \AppBundle\Entity\Nationality $nationality
+     *
+     * @return Player
+     */
+    public function setNationality(Nationality $nationality = null)
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    /**
+     * Get nationality
+     *
+     * @return \AppBundle\Entity\Nationality
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+}
