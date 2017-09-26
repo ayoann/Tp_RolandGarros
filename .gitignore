@@ -41,3 +41,6 @@
 **/Entity/*~
 
 /vendor
+.idea/
+/var/
+/bin/
