@@ -12,7 +12,7 @@ namespace AppBundle\Service\DAO;
 use AppBundle\Entity\Player;
 use AppBundle\Entity\Team;
 
-Class class TeamDAO {
+Class TeamDAO {
 
     public function getTeamById(int $id): Team {
 
