@@ -30,7 +30,7 @@ class Score
 
     /**
      * @var Team
-     * @ORM\ManyToOne(targetEntity="Score", inversedBy="scores")
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="scores")
      * @ORM\JoinColumn(name="team_id", referencedColumnName="id_team")
      */
     private $team;
