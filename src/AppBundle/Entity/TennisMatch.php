@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,7 +17,7 @@ class TennisMatch
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id_tennis_match", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -35,6 +37,33 @@ class TennisMatch
      */
     private $duration;
 
+    /**
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="Score", mappedBy="match")
+     */
+    private $teams;
+
+    /**
+     * @var Tournament
+     * @ORM\ManyToOne(targetEntity="Tournament", inversedBy="matches")
+     * @ORM\JoinColumn(name="tournament_id", referencedColumnName="id_tournament")
+     */
+    private $tournament;
+
+    /**
+     * @var Referee
+     * @ORM\ManyToOne(targetEntity="Referee")
+     * @ORM\JoinColumn(name="person_id", referencedColumnName="id_person")
+     */
+    private $referee;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->teams = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -93,5 +122,86 @@ class TennisMatch
     {
         return $this->duration;
     }
-}
 
+    /**
+     * Add team
+     *
+     * @param Score $team
+     *
+     * @return TennisMatch
+     */
+    public function addTeam(Score $team)
+    {
+        $this->teams[] = $team;
+
+        return $this;
+    }
+
+    /**
+     * Remove team
+     *
+     * @param Score $team
+     */
+    public function removeTeam(Score $team)
+    {
+        $this->teams->removeElement($team);
+    }
+
+    /**
+     * Get teams
+     *
+     * @return Collection
+     */
+    public function getTeams()
+    {
+        return $this->teams;
+    }
+
+    /**
+     * Set tournament
+     *
+     * @param Tournament $tournament
+     *
+     * @return TennisMatch
+     */
+    public function setTournament(Tournament $tournament = null)
+    {
+        $this->tournament = $tournament;
+
+        return $this;
+    }
+
+    /**
+     * Get tournament
+     *
+     * @return Tournament
+     */
+    public function getTournament()
+    {
+        return $this->tournament;
+    }
+
+    /**
+     * Set referee
+     *
+     * @param Referee $referee
+     *
+     * @return TennisMatch
+     */
+    public function setReferee(Referee $referee = null)
+    {
+        $this->referee = $referee;
+
+        return $this;
+    }
+
+    /**
+     * Get referee
+     *
+     * @return Referee
+     */
+    public function getReferee()
+    {
+        return $this->referee;
+    }
+}

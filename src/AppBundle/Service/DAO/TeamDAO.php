@@ -14,17 +14,11 @@ use AppBundle\Entity\Team;
 
 Class TeamDAO {
 
-    public function getTeamById(int $id): Team {
+    public function getTeamById(int $id) {}
 
-    }
+    public function saveTeam() {}
 
-    public function saveTeam():Team {
-
-    }
-
-    public function getTeamWithPlayers(Player $player1, Player $player2): Team {
-
-    }
+    public function getTeamWithPlayers(Player $player1, Player $player2) {}
 
 
 }
