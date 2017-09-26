@@ -8,10 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Player
  *
- * @ORM\Table(name="rg_player")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PlayerRepository")
  */
-class Player
+class Player extends Person
 {
     /**
      * @var int
