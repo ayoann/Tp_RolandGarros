@@ -235,4 +235,20 @@ class TennisMatch
     {
         return $this->tennisCourt;
     }
+
+    /**
+     * @return Score
+     */
+    public function getScoreA()
+    {
+        return $this->teams->get(0);
+    }
+
+    /**
+     * @return Score
+     */
+    public function getScoreB()
+    {
+        return $this->teams->get(1);
+    }
 }
