@@ -26,7 +26,7 @@ class TennisMatch
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime", nullable=true)
+     * @ORM\Column(name="tennis_match_date", type="datetime", nullable=true)
      */
     private $date;
 
@@ -53,9 +53,16 @@ class TennisMatch
     /**
      * @var Referee
      * @ORM\ManyToOne(targetEntity="Referee")
-     * @ORM\JoinColumn(name="person_id", referencedColumnName="id_person")
+     * @ORM\JoinColumn(name="referee_id", referencedColumnName="id_person")
      */
     private $referee;
+
+    /**
+     * @var TennisCourt
+     * @ORM\ManyToOne(targetEntity="TennisCourt")
+     * @ORM\JoinColumn(name="tennis_court_id", referencedColumnName="id_tennis_court")
+     */
+    private $tennisCourt;
 
     /**
      * Constructor
@@ -203,5 +210,29 @@ class TennisMatch
     public function getReferee()
     {
         return $this->referee;
+    }
+
+    /**
+     * Set tennisCourt
+     *
+     * @param TennisCourt $tennisCourt
+     *
+     * @return TennisMatch
+     */
+    public function setTennisCourt(TennisCourt $tennisCourt = null)
+    {
+        $this->tennisCourt = $tennisCourt;
+
+        return $this;
+    }
+
+    /**
+     * Get tennisCourt
+     *
+     * @return TennisCourt
+     */
+    public function getTennisCourt()
+    {
+        return $this->tennisCourt;
     }
 }

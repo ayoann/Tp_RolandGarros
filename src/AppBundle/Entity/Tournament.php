@@ -26,21 +26,21 @@ class Tournament
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=20)
+     * @ORM\Column(name="tournament_name", type="string", length=20)
      */
     private $name;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="simple", type="boolean")
+     * @ORM\Column(name="tournament_simple", type="boolean")
      */
     private $simple;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="nbSetMax", type="integer")
+     * @ORM\Column(name="nb_set_max", type="integer")
      */
     private $nbSetMax;
 
