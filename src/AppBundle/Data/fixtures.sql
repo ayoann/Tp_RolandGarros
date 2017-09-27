@@ -28,7 +28,12 @@ VALUES
   (25, "ROU", "Roumanie"),
   (26, "UKR", "Ukraine"),
   (27, "CZE", "République Tchèque"),
-  (28, "SVK", "Slovaquie")
+  (28, "SVK", "Slovaquie"),
+  (29, "SER", "Serbe"),
+  (30, "AUT", "Autriche"),
+  (31, "BUL", "Bulgarie"),
+  (32, "CAN", "Canada"),
+  (33, "AFS", "Afrique du sud")
 ;
 
 # Referee
@@ -57,23 +62,23 @@ VALUES
   (16, "P", false, 4, "David", "Ferrer"),
   (17, "P", false, 15, "Axel", "Geller"),
   (18, "P", false, 1, "Maxime", "Hamou"),
-  (19, "P", false, 1, "Rafael", "Nadal"),
-  (20, "P", false, 1, "Roger", "Federer"),
-  (21, "P", false, 1, "Andy", "Murray"),
-  (22, "P", false, 1, "Alexander", "Zverev"),
-  (23, "P", false, 1, "Marin", "Cilic"),
-  (24, "P", false, 1, "Novak", "Djokovic"),
-  (25, "P", false, 1, "Dominic", "Thiem"),
-  (26, "P", false, 1, "Grigor", "Dimitrov"),
-  (27, "P", false, 1, "Stan", "Wawrinka"),
-  (28, "P", false, 1, "Pablo", "Carreno Busta"),
-  (29, "P", false, 1, "Milos", "Raonic"),
-  (30, "P", false, 1, "David", "Goffin"),
-  (31, "P", false, 1, "Roberto", "Bautista Agut"),
-  (32, "P", false, 1, "Kei", "Nishikori"),
-  (33, "P", false, 1, "Kevin", "Anderson"),
-  (34, "P", false, 1, "Sam", "Querrey"),
-  (35, "P", false, 1, "John", "Isner"),
+  (19, "P", false, 4, "Rafael", "Nadal"),
+  (20, "P", false, 9, "Roger", "Federer"),
+  (21, "P", false, 3, "Andy", "Murray"),
+  (22, "P", false, 2, "Alexander", "Zverev"),
+  (23, "P", false, 24, "Marin", "Cilic"),
+  (24, "P", false, 29, "Novak", "Djokovic"),
+  (25, "P", false, 30, "Dominic", "Thiem"),
+  (26, "P", false, 31, "Grigor", "Dimitrov"),
+  (27, "P", false, 9, "Stan", "Wawrinka"),
+  (28, "P", false, 4, "Pablo", "Carreno Busta"),
+  (29, "P", false, 32, "Milos", "Raonic"),
+  (30, "P", false, 8, "David", "Goffin"),
+  (31, "P", false, 4, "Roberto", "Bautista Agut"),
+  (32, "P", false, 13, "Kei", "Nishikori"),
+  (33, "P", false, 33, "Kevin", "Anderson"),
+  (34, "P", false, 18, "Sam", "Querrey"),
+  (35, "P", false, 18, "John", "Isner"),
   (36, "P", false, 1, "Jo-Wilfried", "Tsonga")
 ;
 
@@ -97,7 +102,7 @@ VALUES
 ;
 
 # TournamentType
-INSERT INTO rg_tournement_type (id_tournament_type, _tournament_type_name, tournament_type_number)
+INSERT INTO rg_tournament_type (id_tournament_type, _tournament_type_name, tournament_type_number)
 VALUES
   (1, "Homme", 1),
   (2, "Femme", 2),
@@ -105,36 +110,219 @@ VALUES
 ;
 
 # Tournament
-INSERT INTO rg_tournement (id_tournament, tournament_name, nb_set_max, tournament_type_id)
+INSERT INTO rg_tournament (id_tournament, tournament_name, nb_set_max, tournament_type_id, tournament_simple)
 VALUES
-  (1, "Simple messieurs", 5, 1),
-  (2, "Simple dames", 3, 2),
-  (3, "Double messieurs", 5, 1),
-  (4, "Double dames", 3, 2),
-  (5, "Double mixte", 3, 3),
-  (6, "Simple juniors mixte", 3, 3),
-  (7, "double juniors mixte", 3, 3)
+  (1, "Simple messieurs", 5, 1, true),
+  (2, "Simple dames", 3, 2, true),
+  (3, "Double messieurs", 5, 1, false),
+  (4, "Double dames", 3, 2, false),
+  (5, "Double mixte", 3, 3, false),
+  (6, "Simple juniors mixte", 3, 3, true),
+  (7, "double juniors mixte", 3, 3, false)
+;
+
+# TennisCourt
+INSERT INTO rg_tennis_court (id_tennis_court, tennis_court_name, tennis_court_number)
+VALUES
+  (1, "Court N°1", 1),
+  (2, "Court Philippe-Chatrier", 2),
+  (3, "Court Suzanne-Lenglen", 3)
 ;
 
 # Team
 INSERT INTO rg_team (id_team)
 VALUES
   (1),
+  (2),
+  (3),
+  (4),
+  (5),
+  (6),
+  (7),
+  (8),
+  (9),
+  (10),
+  (11),
+  (12),
+  (13),
+  (14),
+  (15),
+  (16),
+  (17),
+  (18),
+  (19),
+  (20),
+  (21),
+  (22),
+  (23),
+  (24),
+  (25),
+  (26),
+  (27),
+  (28),
+  (29),
+  (30),
+  (31),
+  (32),
+  (33),
+  (34),
+  (35),
+  (36),
+  (37),
+  (38),
+  (39),
+  (40)
 ;
 
 # Team <=> Player
 INSERT INTO rg_team_players (team_id, player_id)
 VALUES
-  (1),
-;
-
-# Score
-INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id)
-VALUES
-  (1),
+  (1, 10),
+  (2, 11),
+  (3, 9),
+  (4, 14),
+  (5, 17),
+  (6, 24),
+  (7, 25),
+  (8, 31),
+  (9, 42),
+  (10, 37),
+  (11, 50),
+  (12, 38),
+  (13, 49),
+  (14, 39),
+  (15, 48),
+  (16, 40),
+  (17, 12),
+  (18, 13),
+  (19, 15),
+  (20, 16),
+  (21, 18),
+  (22, 19),
+  (23, 20),
+  (24, 21),
+  (25, 42),
+  (26, 43),
+  (27, 44),
+  (28, 45),
+  (29, 46),
+  (30, 47),
+  (31, 48),
+  (32, 49),
+  (33, 9),
+  (33, 16),
+  (34, 11),
+  (34, 37),
+  (35, 12),
+  (35, 22),
+  (36, 13),
+  (36, 27),
+  (37, 16),
+  (37, 19),
+  (38, 34),
+  (38, 35),
+  (39, 18),
+  (39, 19),
+  (40, 20),
+  (40, 21)
 ;
 
 # TennisMatch Simple planned
-INSERT INTO rg_tennis_match (id_tennis_match, tournament_id, referee_id)
+INSERT INTO rg_tennis_match (id_tennis_match, tournament_id, tennis_court_id, referee_id)
 VALUES
-  (),
+  (1, 1, 1, 1),
+  (2, 1, 2, 3),
+  (3, 1, 3, 4),
+  (4, 1, 1, 8),
+  (5, 2, 1, 2),
+  (6, 2, 1, 5),
+  (7, 2, 2, 6),
+  (8, 2, 3, 7)
+;
+
+# Score of TennisMatch Simple planned
+INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id)
+VALUES
+  (1, null, 1, 1),
+  (2, null, 2, 1),
+  (3, null, 3, 2),
+  (4, null, 4, 2),
+  (5, null, 5, 3),
+  (6, null, 6, 3),
+  (7, null, 7, 4),
+  (8, null, 8, 4),
+  (9, null, 9, 5),
+  (10, null, 10, 5),
+  (11, null, 11, 6),
+  (12, null, 12, 6),
+  (13, null, 13, 7),
+  (14, null, 14, 7),
+  (15, null, 15, 8),
+  (16, null, 16, 8)
+;
+
+# TennisMatch Simple planned and scored
+INSERT INTO rg_tennis_match (id_tennis_match, tournament_id, tennis_court_id, referee_id, tennis_match_date, duration)
+VALUES
+  (9, 1, 1, 1, "2017-06-02", "03h42"),
+  (10, 1, 2, 3, "2017-06-02", "02h15"),
+  (11, 1, 3, 4, "2017-06-02", "02h25"),
+  (12, 1, 1, 8, "2017-06-03", "02h54"),
+  (13, 2, 1, 2, "2017-06-04", "03h59"),
+  (14, 2, 1, 5, "2017-06-05", "02h04"),
+  (15, 2, 2, 6, "2017-06-03", "01h47"),
+  (16, 2, 3, 7, "2017-06-03", "02h32")
+;
+
+# Score of TennisMatch Simple planned and scored
+INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id)
+VALUES
+  (17, 3, 1, 9),
+  (18, 0, 2, 9),
+  (19, 2, 3, 10),
+  (20, 3, 4, 10),
+  (21, 1, 5, 11),
+  (22, 3, 6, 11),
+  (23, 0, 7, 12),
+  (24, 3, 8, 12),
+  (25, 2, 9, 13),
+  (26, 1, 11, 14),
+  (27, 2, 10, 13),
+  (28, 0, 12, 14),
+  (29, 0, 13, 15),
+  (30, 2, 14, 15),
+  (31, 2, 15, 16),
+  (32, 1, 16, 16)
+;
+
+# TennisMatch Double planned
+INSERT INTO rg_tennis_match (id_tennis_match, tournament_id, tennis_court_id, referee_id)
+VALUES
+  (17, 3, 1, 2),
+  (18, 3, 2, 3)
+;
+
+# Score of TennisMatch Double planned
+INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id)
+VALUES
+  (33, null, 33, 17),
+  (34, null, 34, 17),
+  (35, null, 35, 18),
+  (36, null, 36, 18)
+;
+
+# TennisMatch Double planned and scored
+INSERT INTO rg_tennis_match (id_tennis_match, tournament_id, tennis_court_id, referee_id, tennis_match_date, duration)
+VALUES
+  (19, 4, 3, 7, "2017-06-06", "03h16"),
+  (20, 4, 3, 6, "2017-06-06", "02h53")
+;
+
+# Score of TennisMatch Double planned and scored
+INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id)
+VALUES
+  (37, 3, 37, 19),
+  (38, 2, 38, 19),
+  (39, 1, 39, 20),
+  (40, 3, 40, 20)
+;

@@ -24,7 +24,7 @@ class Score
     /**
      * @var int
      *
-     * @ORM\Column(name="nb_set_win", type="integer")
+     * @ORM\Column(name="nb_set_win", type="integer", nullable=true)
      */
     private $nbSetWin;
 
