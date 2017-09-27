@@ -3,7 +3,7 @@
 namespace AppBundle\Service\DAO;
 
 use AppBundle\Entity\Referee;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManager;
 
 
 /**
@@ -15,9 +15,9 @@ class RefereeDAO {
 
     protected $em;
 
-    public function __construct(ObjectManager $objectManager)
+    public function __construct(EntityManager $entityManager)
     {
-        $this->em = $objectManager;
+        $this->em = $entityManager;
     }
 
     public function saveReferee(Referee $referee){

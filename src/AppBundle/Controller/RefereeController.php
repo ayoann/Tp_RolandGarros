@@ -50,9 +50,7 @@ class RefereeController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $em = $this->getDoctrine()->getManager();
-
-            $refereeDAO = new RefereeDAO($em);
+            $refereeDAO = $this->get(RefereeDAO::class);
             $refereeDAO->saveReferee($referee);
 
             return $this->render('AppBundle:admin:index.html.twig');
