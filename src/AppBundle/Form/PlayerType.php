@@ -28,7 +28,8 @@ class PlayerType extends \Symfony\Component\Form\AbstractType
             ->add('lastname', TextType::class, array('label' => 'Prénom', 'translation_domain' => 'AppBundle'))
             ->add('nationality', EntityType::class, array(
                 'class' => 'AppBundle\Entity\Nationality',
-                'choice_label' => 'Nationalité',
+                'label' => 'Nationalité',
+                'choice_label' => 'name',
                 'translation_domain' => 'AppBundle',
                 'query_builder' => function (\AppBundle\Repository\NationalityRepository $er) {
                     return $er->createQueryBuilder('n')
