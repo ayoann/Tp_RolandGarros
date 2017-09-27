@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class RefereeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllReferee()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT r
+    		FROM AppBundle:Referee r
+    		ORDER BY r.lastname ASC' );
+
+        return $query->getResult();
+
+    }
 }

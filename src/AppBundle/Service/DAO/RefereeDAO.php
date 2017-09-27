@@ -15,9 +15,9 @@ class RefereeDAO {
 
     protected $em;
 
-    public function __construct(ObjectManager $entityManager)
+    public function __construct(ObjectManager $objectManager)
     {
-        $this->em = $entityManager;
+        $this->em = $objectManager;
     }
 
     public function saveReferee(Referee $referee){

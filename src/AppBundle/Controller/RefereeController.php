@@ -24,7 +24,22 @@ class RefereeController extends Controller
     /**
      * Creates a new Referee entity.
      *
-     * @Route("/")
+     * @Route("/get")
+     * @Method({"GET", "POST"})
+     */
+    public function getAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $referees = $em->getRepository(Referee::class)->getAllReferee();
+
+        return $this->render('AppBundle:admin/referee:delete.html.twig', array(
+            'referees' =>$referees));
+    }
+
+    /**
+     * Creates a new Referee entity.
+     *
+     * @Route("/add")
      * @Method({"GET", "POST"})
      */
     public function addAction(Request $request)
@@ -50,12 +65,23 @@ class RefereeController extends Controller
     }
 
     /**
-     * @Route("/")
+     * @Route("/delete/{id}")
      * @return Response
      */
-    public function deleteAction()
+    public function deleteAction($id)
     {
-        return $this->render('AppBundle:admin/referee:new.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $referee = $em->getRepository('AppBundle:Referee')->findOneBy(array('id' => $id));
+
+        if (!$referee) {
+            throw $this->createNotFoundException('No referee found for id '.$id);
+        }
+
+        $em->remove($referee);
+        $em->flush();
+
+
+        return $this->redirectToRoute('app_referee_get');
     }
 
 }
