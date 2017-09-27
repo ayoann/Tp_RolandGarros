@@ -211,28 +211,4 @@ class TennisMatch
     {
         return $this->referee;
     }
-
-    /**
-     * Set tennisCourt
-     *
-     * @param TennisCourt $tennisCourt
-     *
-     * @return TennisMatch
-     */
-    public function setTennisCourt(TennisCourt $tennisCourt = null)
-    {
-        $this->tennisCourt = $tennisCourt;
-
-        return $this;
-    }
-
-    /**
-     * Get tennisCourt
-     *
-     * @return TennisCourt
-     */
-    public function getTennisCourt()
-    {
-        return $this->tennisCourt;
-    }
 }

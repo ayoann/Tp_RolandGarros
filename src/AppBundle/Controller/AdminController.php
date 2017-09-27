@@ -7,10 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class DefaultController
+ * Class AdminController
  * @package AppBundle\Controller
+ * @Route("admin")
  */
-class DefaultController extends Controller
+class AdminController extends Controller
 {
     /**
      * @Route("/")
@@ -18,7 +19,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        // create index's view of the application
-        return $this->render('AppBundle:default:index.html.twig');
+        // create index's view of the admin area
+        return $this->render('AppBundle:admin:index.html.twig');
     }
 }

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/styleOrganisateur.css') }}">
+{% endblock %}
+
+{% block nav %}
+    {{ parent() }}
+    <a href="{{ path('app_default_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
+{% endblock %}
+
+{% block body %}
+    <div class="line">
+        <div class="z-depth-3 cardTop left">
+            <h4 class="center-align">Joueurs</h4>
+            <div class="content-container">
+                <div class="btn-container">
+                    <a class="waves-effect waves-light btn buttonAjouter" href="#">Ajouter</a>
+                    <a href="#" class="waves-effect red lighten-1 btn buttonAjouter">Supprimer</a>
+                </div>
+            </div>
+        </div>
+        <div class="z-depth-3 cardTop right">
+            <h4 class="center-align">Matchs</h4>
+            <div class="column-content">
+                <div class="content-container">
+                    <div class="btn-container vertical">
+                        <p>Match simple :</p>
+                        <a class="waves-effect waves-light btn buttonMatch" href="#">Ajouter</a>
+                        <a class="waves-effect red lighten-1 btn buttonMatch">Supprimer</a>
+                    </div>
+                </div>
+                <div class="content-container">
+                    <div class="btn-container vertical">
+                        <p>Match double :</p>
+                        <a class="waves-effect waves-light btn buttonMatch" href="#">Ajouter</a>
+                        <a class="waves-effect red lighten-1 btn buttonMatch">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <p class="center-align">Résultat matchs :</p>
+                <div class="center-elem-form">
+                    <a class="waves-effect waves-light btn" href="#">Ajouter résultat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="line">
+        <div class="z-depth-3 cardBottom left">
+            <h4 class="center-align">Arbitre</h4>
+            <div class="content-container">
+                <div class="btn-container">
+                    <a class="waves-effect waves-light btn buttonAjouter" href="#">Ajouter</a>
+                    <a href="#" class="waves-effect red lighten-1 btn buttonAjouter">Supprimer</a>
+                </div>
+            </div>
+        </div>
+        <div class="z-depth-3 cardBottom left">
+            <h4 class="center-align">Court</h4>
+            <div class="content-container">
+                <div class="btn-container">
+                    <a class="waves-effect waves-light btn" href="#">Ajouter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
