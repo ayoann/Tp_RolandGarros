@@ -5,17 +5,17 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Nationality
+ * TennisCourt
  *
- * @ORM\Table(name="rg_nationality")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\NationalityRepository")
+ * @ORM\Table(name="rg_tennis_court")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TennisCourtRepository")
  */
-class Nationality
+class TennisCourt
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id_nationality", type="integer")
+     * @ORM\Column(name="id_tennis_court", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,16 +24,16 @@ class Nationality
     /**
      * @var string
      *
-     * @ORM\Column(name="nationalty_name", type="string", length=25, nullable=true)
+     * @ORM\Column(name="tennis_court_name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="short_name", type="string", length=5, nullable=true)
+     * @ORM\Column(name="tennis_court_number", type="integer")
      */
-    private $shortName;
+    private $number;
 
 
     /**
@@ -51,7 +51,7 @@ class Nationality
      *
      * @param string $name
      *
-     * @return Nationality
+     * @return TennisCourt
      */
     public function setName($name)
     {
@@ -71,27 +71,27 @@ class Nationality
     }
 
     /**
-     * Set shortName
+     * Set number
      *
-     * @param string $shortName
+     * @param integer $number
      *
-     * @return Nationality
+     * @return TennisCourt
      */
-    public function setShortName($shortName)
+    public function setNumber($number)
     {
-        $this->shortName = $shortName;
+        $this->number = $number;
 
         return $this;
     }
 
     /**
-     * Get shortName
+     * Get number
      *
-     * @return string
+     * @return int
      */
-    public function getShortName()
+    public function getNumber()
     {
-        return $this->shortName;
+        return $this->number;
     }
 }
 

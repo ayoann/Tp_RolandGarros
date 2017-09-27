@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TournamentType
  *
- * @ORM\Table(name="rg_tournement_type")
+ * @ORM\Table(name="rg_tournament_type")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TournamentTypeRepository")
  */
 class TournamentType
@@ -24,14 +24,14 @@ class TournamentType
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=20)
+     * @ORM\Column(name="_tournament_type_name", type="string", length=20)
      */
     private $name;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="number", type="integer")
+     * @ORM\Column(name="tournament_type_number", type="integer")
      */
     private $number;
 
