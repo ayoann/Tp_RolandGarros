@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/addPages.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
+{% endblock %}
+
+{% block nav %}
+    {{ parent() }}
+    <a href="{{ path('app_default_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
+{% endblock %}
+
+{% block titre %}
+    <h4 class="center-align">Ajouter un joueur</h4>
+{% endblock %}
+{% block body %}
+    <div class="frame z-depth-3">
+        {{ form_start(form, {'attr': {'class': 'col s12 add_page_form'}}) }}
+            <div class="row col s12">
+                <div class="input-field field center-elem-form">
+                    {{ form_label(form.firstname) }}{{ form_widget(form.firstname) }}
+                </div>
+            </div>
+            <div class="row col s12">
+                <div class="input-field field center-elem-form">
+                    {{ form_label(form.lastname) }}{{ form_widget(form.lastname) }}
+                </div>
+            </div>
+            <div class="row col s12">
+                <div class="input-field field center-elem-form">
+                    {{ form_label(form.nationality) }}{{ form_widget(form.nationality) }}
+                </div>
+            </div>
+            <div class="row col s12">
+                <div class="input-field field center-elem-form">
+                    {{ form_label(form.female) }}{{ form_widget(form.female) }}
+                </div>
+            </div>
+            <div class="row col s12">
+                <div class="center-elem-form validate-btn">
+                    {{ form_widget(form.save, {'attr': {'class': 'waves-effect waves-light btn'}}) }}
+                </div>
+            </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+{% endblock %}
