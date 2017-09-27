@@ -58,6 +58,13 @@ class TennisMatch
     private $referee;
 
     /**
+     * @var TennisCourt
+     * @ORM\ManyToOne(targetEntity="TennisCourt")
+     * @ORM\JoinColumn(name="tennis_court_id", referencedColumnName="id_tennis_court")
+     */
+    private $tennisCourt;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -203,5 +210,29 @@ class TennisMatch
     public function getReferee()
     {
         return $this->referee;
+    }
+
+    /**
+     * Set tennisCourt
+     *
+     * @param TennisCourt $tennisCourt
+     *
+     * @return TennisMatch
+     */
+    public function setTennisCourt(TennisCourt $tennisCourt = null)
+    {
+        $this->tennisCourt = $tennisCourt;
+
+        return $this;
+    }
+
+    /**
+     * Get tennisCourt
+     *
+     * @return TennisCourt
+     */
+    public function getTennisCourt()
+    {
+        return $this->tennisCourt;
     }
 }
