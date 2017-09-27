@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/addPages.css') }}">
+{% endblock %}
+
+{% block nav %}
+    {{ parent() }}
+    <a href="{{ path('app_default_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
+{% endblock %}
+
+{% block body %}
+    <h4 class="center-align">Ajouter un court</h4>
+
+    <div class="container">
+        <div class="frame z-depth-3 s12">
+            {{ form_start(form, {'attr': {'class': 'col s12 add_page_form' }}) }}
+                <div class="row col s12">
+                    <div class="input-field field center-elem-form">
+                        {{ form_widget(form.name, {'attr':{'placeholder':'Nom' }}) }}
+                    </div>
+                </div>
+
+                <div class="row col s12">
+                    <div class="input-field field center-elem-form">
+                        {{ form_widget(form.number, {'attr':{'placeholder':'Numéro' }}) }}
+                    </div>
+                </div>
+                <div class="row col s12">
+                    <div class="center-elem-form validate-btn">
+                        {{ form_widget(form.valider, {'attr': {'class': 'waves-effect waves-light btn'}}) }}
+                    </div>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
