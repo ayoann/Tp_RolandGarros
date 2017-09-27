@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Nationality
  *
- * @ORM\Table(name="nationality")
+ * @ORM\Table(name="rg_nationality")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\NationalityRepository")
  */
 class Nationality
@@ -15,7 +15,7 @@ class Nationality
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id_nationality", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
