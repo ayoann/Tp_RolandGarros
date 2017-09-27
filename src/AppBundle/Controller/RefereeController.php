@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Service\DAO\RefereeDAO;
-use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
