@@ -28,6 +28,12 @@ class MatchDAO
 
     }
 
+    public function saveDuoMatch(TennisMatch $tennisMatch){
+
+        $this->em->persist($tennisMatch);
+        $this->em->flush();
+    }
+
     /**
      * @return Collection
      * @throws \Exception
