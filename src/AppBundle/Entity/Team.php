@@ -125,4 +125,20 @@ class Team
     {
         return $this->players;
     }
+
+    /**
+     * @return Player|null
+     */
+    public function getPlayerA()
+    {
+        return $this->players->get(0);
+    }
+
+    /**
+     * @return Player|null
+     */
+    public function getPlayerB()
+    {
+        return $this->players->get(1);
+    }
 }

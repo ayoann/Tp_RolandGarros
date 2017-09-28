@@ -102,7 +102,7 @@ VALUES
 ;
 
 # TournamentType
-INSERT INTO rg_tournament_type (id_tournament_type, _tournament_type_name, tournament_type_number)
+INSERT INTO rg_tournament_type (id_tournament_type, tournament_type_name, tournament_type_number)
 VALUES
   (1, "Homme", 1),
   (2, "Femme", 2),
@@ -110,15 +110,15 @@ VALUES
 ;
 
 # Tournament
-INSERT INTO rg_tournament (id_tournament, tournament_name, nb_set_max, tournament_type_id, tournament_simple)
+INSERT INTO rg_tournament (id_tournament, class_name, tournament_name, nb_set_max, tournament_type_id, tournament_simple)
 VALUES
-  (1, "Simple messieurs", 5, 1, true),
-  (2, "Simple dames", 3, 2, true),
-  (3, "Double messieurs", 5, 1, false),
-  (4, "Double dames", 3, 2, false),
-  (5, "Double mixte", 3, 3, false),
-  (6, "Simple juniors mixte", 3, 3, true),
-  (7, "double juniors mixte", 3, 3, false)
+  (1, "t-simple-h", "Simple messieurs", 5, 1, true),
+  (2, "t-simple-f", "Simple dames", 3, 2, true),
+  (3, "t-double-h", "Double messieurs", 5, 1, false),
+  (4, "t-double-f", "Double dames", 3, 2, false),
+  (5, "t-double-mixte", "Double mixte", 3, 3, false),
+  (6, "t-simple-j", "Simple juniors mixte", 3, 3, true),
+  (7, "t-double-j", "double juniors mixte", 3, 3, false)
 ;
 
 # TennisCourt
@@ -241,58 +241,58 @@ VALUES
 ;
 
 # Score of TennisMatch Simple planned
-INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id)
+INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id, win)
 VALUES
-  (1, null, 1, 1),
-  (2, null, 2, 1),
-  (3, null, 3, 2),
-  (4, null, 4, 2),
-  (5, null, 5, 3),
-  (6, null, 6, 3),
-  (7, null, 7, 4),
-  (8, null, 8, 4),
-  (9, null, 9, 5),
-  (10, null, 10, 5),
-  (11, null, 11, 6),
-  (12, null, 12, 6),
-  (13, null, 13, 7),
-  (14, null, 14, 7),
-  (15, null, 15, 8),
-  (16, null, 16, 8)
+  (1, null, 1, 1, false),
+  (2, null, 2, 1, false),
+  (3, null, 3, 2, false),
+  (4, null, 4, 2, false),
+  (5, null, 5, 3, false),
+  (6, null, 6, 3, false),
+  (7, null, 7, 4, false),
+  (8, null, 8, 4, false),
+  (9, null, 9, 5, false),
+  (10, null, 10, 5, false),
+  (11, null, 11, 6, false),
+  (12, null, 12, 6, false),
+  (13, null, 13, 7, false),
+  (14, null, 14, 7, false),
+  (15, null, 15, 8, false),
+  (16, null, 16, 8, false)
 ;
 
 # TennisMatch Simple planned and scored
 INSERT INTO rg_tennis_match (id_tennis_match, tournament_id, tennis_court_id, referee_id, tennis_match_date, duration)
 VALUES
-  (9, 1, 1, 1, "2017-06-02", "03h42"),
-  (10, 1, 2, 3, "2017-06-02", "02h15"),
-  (11, 1, 3, 4, "2017-06-02", "02h25"),
-  (12, 1, 1, 8, "2017-06-03", "02h54"),
-  (13, 2, 1, 2, "2017-06-04", "03h59"),
-  (14, 2, 1, 5, "2017-06-05", "02h04"),
-  (15, 2, 2, 6, "2017-06-03", "01h47"),
-  (16, 2, 3, 7, "2017-06-03", "02h32")
+  (9, 1, 1, 1, "2017-06-02 09:45", "03h42"),
+  (10, 1, 2, 3, "2017-06-02 09:50", "02h15"),
+  (11, 1, 3, 4, "2017-06-02 09:55", "02h25"),
+  (12, 1, 1, 8, "2017-06-03 14:00", "02h54"),
+  (13, 2, 1, 2, "2017-06-04 14:15", "03h59"),
+  (14, 2, 1, 5, "2017-06-05 14:00", "02h04"),
+  (15, 2, 2, 6, "2017-06-03 13:55", "01h47"),
+  (16, 2, 3, 7, "2017-06-03 13:30", "02h32")
 ;
 
 # Score of TennisMatch Simple planned and scored
-INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id)
+INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id, win)
 VALUES
-  (17, 3, 1, 9),
-  (18, 0, 2, 9),
-  (19, 2, 3, 10),
-  (20, 3, 4, 10),
-  (21, 1, 5, 11),
-  (22, 3, 6, 11),
-  (23, 0, 7, 12),
-  (24, 3, 8, 12),
-  (25, 2, 9, 13),
-  (26, 1, 11, 14),
-  (27, 2, 10, 13),
-  (28, 0, 12, 14),
-  (29, 0, 13, 15),
-  (30, 2, 14, 15),
-  (31, 2, 15, 16),
-  (32, 1, 16, 16)
+  (17, 3, 1, 9, true),
+  (18, 0, 2, 9, false),
+  (19, 2, 3, 10, false),
+  (20, 3, 4, 10, true),
+  (21, 1, 5, 11, false),
+  (22, 3, 6, 11, true),
+  (23, 0, 7, 12, false),
+  (24, 3, 8, 12, true),
+  (25, 2, 9, 13, true),
+  (26, 1, 11, 13, false),
+  (27, 2, 10, 14, true),
+  (28, 0, 12, 14, false),
+  (29, 0, 13, 15, false),
+  (30, 2, 14, 15, true),
+  (31, 2, 15, 16, true),
+  (32, 1, 16, 16, false)
 ;
 
 # TennisMatch Double planned
@@ -303,26 +303,26 @@ VALUES
 ;
 
 # Score of TennisMatch Double planned
-INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id)
+INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id, win)
 VALUES
-  (33, null, 33, 17),
-  (34, null, 34, 17),
-  (35, null, 35, 18),
-  (36, null, 36, 18)
+  (33, null, 33, 17, false),
+  (34, null, 34, 17, false),
+  (35, null, 35, 18, false),
+  (36, null, 36, 18, false)
 ;
 
 # TennisMatch Double planned and scored
 INSERT INTO rg_tennis_match (id_tennis_match, tournament_id, tennis_court_id, referee_id, tennis_match_date, duration)
 VALUES
-  (19, 4, 3, 7, "2017-06-06", "03h16"),
-  (20, 4, 3, 6, "2017-06-06", "02h53")
+  (19, 3, 3, 7, "2017-06-06 14:30", "03h16"),
+  (20, 3, 3, 6, "2017-06-06 12:50", "02h53")
 ;
 
 # Score of TennisMatch Double planned and scored
-INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id)
+INSERT INTO rg_score (id_score, nb_set_win, team_id, match_id, win)
 VALUES
-  (37, 3, 37, 19),
-  (38, 2, 38, 19),
-  (39, 1, 39, 20),
-  (40, 3, 40, 20)
+  (37, 3, 37, 19, true),
+  (38, 2, 38, 19, false),
+  (39, 1, 39, 20, false),
+  (40, 3, 40, 20, true)
 ;

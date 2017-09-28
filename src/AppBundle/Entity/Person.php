@@ -38,6 +38,13 @@ abstract class Person
      */
     protected $lastname;
 
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return "{$this->firstname} {$this->lastname}";
+    }
 
     /**
      * Get id

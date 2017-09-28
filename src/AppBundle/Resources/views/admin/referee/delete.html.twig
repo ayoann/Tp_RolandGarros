@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/deletePages.css') }}">
+{% endblock %}
+
+{% block nav %}
+    {{ parent() }}
+    <a href="{{ path('app_admin_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Retour</a>
+{% endblock %}
+
+{% block body %}
+    <h4 class="center-align">Supprimer un arbitre</h4>
+
+    <div class="container">
+        <div class="frame z-depth-5">
+            {% for referees in referees %}
+                <div class="row">
+                    <div class="col s6">
+                        <p>{{ referees.lastname|upper }} {{ referees.firstname|upper }}</p>
+                    </div>
+                    <div class="col s6">
+                        <a href="{{ path('app_referee_delete', {'id' : referees.id}) }}" class="waves-effect red lighten-1 btn btnDelete">Supprimer</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+{% endblock %}
+
+

@@ -38,6 +38,12 @@ class Tournament
     private $simple;
 
     /**
+     * @var string
+     * @ORM\Column(name="class_name", type="string", length=15)
+     */
+    private $className;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="nb_set_max", type="integer")
@@ -203,5 +209,23 @@ class Tournament
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClassName()
+    {
+        return $this->className;
+    }
+
+    /**
+     * @param string $className
+     * @return Tournament
+     */
+    public function setClassName($className)
+    {
+        $this->className = $className;
+        return $this;
     }
 }

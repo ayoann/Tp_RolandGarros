@@ -43,6 +43,12 @@ class Score
     private $match;
 
     /**
+     * @var bool
+     * @ORM\Column(name="win", type="boolean")
+     */
+    private $win = false;
+
+    /**
      * Get id
      *
      * @return int
@@ -122,5 +128,23 @@ class Score
     public function getMatch()
     {
         return $this->match;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isWin()
+    {
+        return $this->win;
+    }
+
+    /**
+     * @param boolean $win
+     * @return Score
+     */
+    public function setWin($win)
+    {
+        $this->win = $win;
+        return $this;
     }
 }
