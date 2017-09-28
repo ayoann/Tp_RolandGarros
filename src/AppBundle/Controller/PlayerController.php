@@ -26,6 +26,21 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class PlayerController extends Controller {
 
     /**
+     * Get players
+     *
+     * @Route("/getPlayers")
+     * @Method({"GET", "POST"})
+     */
+    public function getAction(Request $request) {
+
+        $playerDAO = $this->get(PlayerDAO::class);
+        $players = $playerDAO->getAllPlayersWithTeams();
+
+        return $this->render('AppBundle:admin/player:deletePlayer.html.twig', array(
+            'players' =>$players));
+    }
+
+    /**
      * Create a new player
      * @Route("/addPlayer")
      * @Method({"GET", "POST"})
@@ -37,9 +52,7 @@ class PlayerController extends Controller {
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $em = $this->getDoctrine()->getManager();
-
-            $playerDAO = new PlayerDAO($em);
+            $playerDAO = $this->get(PlayerDAO::class);
             $playerDAO->savePlayer($player);
 
             return $this->redirectToRoute('app_admin_index');
@@ -48,6 +61,26 @@ class PlayerController extends Controller {
             'player' => $player,
             'form' => $form->createView(),
         ));
+    }
+
+    /**
+     * @Route("/deletePlayer/{id}")
+     * @param $id
+     * @return Response
+     */
+    public function deletePlayerAction($id) {
+
+        $playerDAO = $this->get(PlayerDAO::class);
+        $player = $playerDAO->getPlayerById($id);
+
+        if (!$player) {
+            throw $this->createNotFoundException('No player found for this id '.$id);
+        }
+        else {
+            $playerDAO->removePlayer($player);
+            return $this->redirectToRoute('app_player_getplayers');
+        }
+
     }
 
 }

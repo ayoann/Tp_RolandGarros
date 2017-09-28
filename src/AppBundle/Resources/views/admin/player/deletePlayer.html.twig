@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/addPages.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
+{% endblock %}
+
+{% block nav %}
+    {{ parent() }}
+    <a href="{{ path('app_default_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
+{% endblock %}
+
+{% block titre %}
+    <h3 class="center-align">Supprimer des joueurs !</h3>
+{% endblock %}
+{% block body %}
+    <div class="intro-text">
+        <div id="list" class="z-depth-3">
+            {% for player in players %}
+                <div class="col s6">
+                    <p>{{ player.firstname }} {{ player.lastname }}</p>
+                </div>
+                <div class="col s6">
+                    <a href="{{ path('app_player_deleteplayer', {'id' : player.id}) }}" class="waves-effect red lighten-1 btn btnDelete">Supprimer</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -2,8 +2,8 @@
 
 namespace AppBundle\Service\DAO;
 use AppBundle\Entity\Player;
-use AppBundle\Repository\PlayerRepository;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\EntityManager;
 
 /**
  * Class ScoreDAO
@@ -13,17 +13,16 @@ use Doctrine\Common\Persistence\ObjectManager;
 class PlayerDAO {
 
     /**
-     * @var ObjectManager
+     * @var EntityManager
      */
     private $em;
 
-    /**
-     * @var PlayerRepository
-     */
-    private $repoPlayer;
-
-    public function __construct(ObjectManager $entityManager){
+    public function __construct(EntityManager $entityManager) {
         $this->em = $entityManager;
+    }
+
+    public function getRepository() {
+        return $this->em->getRepository(Player::class);
     }
 
     public function savePlayer(Player $player){
@@ -31,27 +30,28 @@ class PlayerDAO {
         $this->em->flush();
     }
 
-    public function getAllPlayers(){
-        $this->repoPlayer->findAll();
+    public function getAllPlayersWithTeams(){
+        $query = $this->getRepository()->getPlayersTeams();
+        return new ArrayCollection($query->getResult());
     }
 
     public function getAllMenPlayers(){
-        $qb = $this->em->createQueryBuilder();
-        $qb->add('select', 'p')
-            ->add('from', 'rg_person')
-            ->add('where', 'p.female = ?1')
-            ->setParameter(1, false);
+        $query = $this->getRepository()->getMen();
+        return new ArrayCollection($query->getResult());
     }
 
-    public function getAllWomanPlayers(){
-        $qb = $this->em->createQueryBuilder();
-        $qb->add('select', 'p')
-            ->add('from', 'rg_person')
-            ->add('where', 'p.female = ?1')
-            ->setParameter(1, true);
+    public function getAllWomenPlayers(){
+        $query = $this->getRepository()->getWomen();
+        return new ArrayCollection($query->getResult());
     }
 
-    public function removePlayer(){
+    public function removePlayer(Player $player){
+        $this->em->remove($player);
+        $this->em->flush();
+    }
 
+    public function getPlayerById($id) {
+        $query = $this->getRepository()->getPlayerById($id);
+        return $query->getResult();
     }
 }
