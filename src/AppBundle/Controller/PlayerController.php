@@ -78,7 +78,7 @@ class PlayerController extends Controller {
         }
         else {
             $playerDAO->removePlayer($player);
-            return $this->redirectToRoute('app_player_getplayers');
+            return $this->redirectToRoute('app_player_get');
         }
 
     }

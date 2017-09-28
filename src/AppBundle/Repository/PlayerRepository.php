@@ -33,8 +33,8 @@ class PlayerRepository extends \Doctrine\ORM\EntityRepository {
     public function getPlayersTeams() {
         $qb = $this->createQueryBuilder('p');
 
-        $qb->addSelect('nationality')
-            ->leftJoin('p.teams','nationality');
+        $qb->addSelect('teams')
+            ->leftJoin('p.teams','teams');
 
         return $qb->getQuery();
     }

@@ -52,6 +52,6 @@ class PlayerDAO {
 
     public function getPlayerById($id) {
         $query = $this->getRepository()->getPlayerById($id);
-        return $query->getResult();
+        return $query->getSingleResult();
     }
 }
