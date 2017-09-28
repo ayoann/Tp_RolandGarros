@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/styleIdentification.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <form class="col s10 offset-s1 rectangle z-depth-3"
+              action="{{ path('app_security_login') }}"
+              method="post">
+            <h5 class="center-align" id="title">Connexion</h5>
+            <div class="col s4 offset-s1">
+                <label for="username" class="flow-text">Nom :</label>
+            </div>
+            <div class="col s6">
+                <input type="text" id="username" name="_username" value="{{ last_username }}" />
+            </div>
+
+            <div class="col s4 offset-s1">
+                <label for="password" class="flow-text">Mot de passe :</label>
+            </div>
+            <div class="col s6">
+                <input type="password" id="password" name="_password" />
+            </div>
+            <div class="col s4 offset-s4">
+                <div class="col s12 offset-s1">
+                    <button class="waves-effect waves-light btn buttonIdentifier" type="submit">S'identifier</button>
+                </div>
+            </div>
+            {% if error %}
+                <div class="col s8 offset-s2 alert-message center-align">
+                    Indentifiant / Mot de passe invalides !
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}
