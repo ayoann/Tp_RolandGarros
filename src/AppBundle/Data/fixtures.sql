@@ -102,7 +102,7 @@ VALUES
 ;
 
 # TournamentType
-INSERT INTO rg_tournament_type (id_tournament_type, _tournament_type_name, tournament_type_number)
+INSERT INTO rg_tournament_type (id_tournament_type, tournament_type_name, tournament_type_number)
 VALUES
   (1, "Homme", 1),
   (2, "Femme", 2),
