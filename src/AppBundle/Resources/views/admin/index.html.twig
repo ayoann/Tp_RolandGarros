@@ -6,7 +6,7 @@
 
 {% block nav %}
     {{ parent() }}
-    <a href="{{ path('app_default_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
+    <a href="{{ path('user_logout') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
 {% endblock %}
 
 {% block body %}
@@ -15,8 +15,8 @@
             <h4 class="center-align">Joueurs</h4>
             <div class="content-container">
                 <div class="btn-container">
-                    <a class="waves-effect waves-light btn buttonAjouter" href="#">Ajouter</a>
-                    <a href="#" class="waves-effect red lighten-1 btn buttonAjouter">Supprimer</a>
+                    <a class="waves-effect waves-light btn buttonAjouter" href="{{ path('app_player_addplayer') }}">Ajouter</a>
+                    <a class="waves-effect red lighten-1 btn buttonAjouter" href="{{ path('app_player_get') }}">Supprimer</a>
                 </div>
             </div>
         </div>
@@ -52,8 +52,8 @@
             <h4 class="center-align">Arbitre</h4>
             <div class="content-container">
                 <div class="btn-container">
-                    <a class="waves-effect waves-light btn buttonAjouter" href="#">Ajouter</a>
-                    <a href="#" class="waves-effect red lighten-1 btn buttonAjouter">Supprimer</a>
+                    <a href="{{ path('app_referee_add') }}" class="waves-effect waves-light btn buttonAjouter">Ajouter</a>
+                    <a href="{{ path('app_referee_get') }}" class="waves-effect red lighten-1 btn buttonAjouter">Supprimer</a>
                 </div>
             </div>
         </div>
@@ -66,4 +66,10 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 {% endblock %}

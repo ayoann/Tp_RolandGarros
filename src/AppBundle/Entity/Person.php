@@ -10,9 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="rg_person")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({"P" = "Player", "R" = "Referee"})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PersonRepository")
  */
-class Person
+abstract class Person
 {
     /**
      * @var int
@@ -37,6 +38,13 @@ class Person
      */
     protected $lastname;
 
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return "{$this->firstname} {$this->lastname}";
+    }
 
     /**
      * Get id

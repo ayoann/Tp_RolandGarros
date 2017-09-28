@@ -32,7 +32,7 @@ class Team
     private $scores;
 
      /**
-     * @ORM\ManyToMany(targetEntity="Player", inversedBy="players")
+     * @ORM\ManyToMany(targetEntity="Player", inversedBy="teams")
      * @ORM\JoinTable(name="rg_team_players",
       *      joinColumns={@ORM\JoinColumn(name="team_id", referencedColumnName="id_team")},
       *      inverseJoinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id_person")}
@@ -124,5 +124,21 @@ class Team
     public function getPlayers()
     {
         return $this->players;
+    }
+
+    /**
+     * @return Player|null
+     */
+    public function getPlayerA()
+    {
+        return $this->players->get(0);
+    }
+
+    /**
+     * @return Player|null
+     */
+    public function getPlayerB()
+    {
+        return $this->players->get(1);
     }
 }
