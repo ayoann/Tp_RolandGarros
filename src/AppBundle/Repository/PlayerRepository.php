@@ -11,6 +11,10 @@ namespace AppBundle\Repository;
 class PlayerRepository extends \Doctrine\ORM\EntityRepository {
 
 
+    /**
+     * Get all men players
+     * @return \Doctrine\ORM\Query
+     */
     public function getMen() {
         $qb = $this->createQueryBuilder('p');
 
@@ -20,7 +24,10 @@ class PlayerRepository extends \Doctrine\ORM\EntityRepository {
         return $qb->getQuery();
     }
 
-
+    /**
+     * Get all women players
+     * @return \Doctrine\ORM\Query
+     */
     public function getWomen() {
         $qb = $this->createQueryBuilder('p');
 
@@ -30,6 +37,10 @@ class PlayerRepository extends \Doctrine\ORM\EntityRepository {
         return $qb->getQuery();
     }
 
+    /**
+     * Get players with teams information
+     * @return \Doctrine\ORM\Query
+     */
     public function getPlayersTeams() {
         $qb = $this->createQueryBuilder('p');
 
@@ -39,6 +50,11 @@ class PlayerRepository extends \Doctrine\ORM\EntityRepository {
         return $qb->getQuery();
     }
 
+    /**
+     * Get a player with his id
+     * @param $id
+     * @return \Doctrine\ORM\Query
+     */
     public function getPlayerById($id) {
         $qb = $this->createQueryBuilder('p');
 

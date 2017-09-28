@@ -18,6 +18,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class PlayerType extends \Symfony\Component\Form\AbstractType
 {
     /**
+     * Form builder to add player
+     *
      * @param FormBuilderInterface $builder
      * @param array $options
      */

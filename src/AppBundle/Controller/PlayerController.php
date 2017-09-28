@@ -42,6 +42,7 @@ class PlayerController extends Controller {
 
     /**
      * Create a new player
+     *
      * @Route("/addPlayer")
      * @Method({"GET", "POST"})
      */
@@ -64,6 +65,8 @@ class PlayerController extends Controller {
     }
 
     /**
+     * Delete a player
+     *
      * @Route("/deletePlayer/{id}")
      * @param $id
      * @return Response
