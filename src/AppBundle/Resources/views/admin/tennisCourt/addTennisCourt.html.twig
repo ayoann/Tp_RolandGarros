@@ -7,23 +7,24 @@
 {% block nav %}
     {{ parent() }}
     <a href="{{ path('app_admin_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Retour</a>
-    <a href="{{ path('user_logout') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se connecter</a>
+    <a href="{{ path('user_logout') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
 {% endblock %}
 
 {% block body %}
-    <h4 class="center-align">Ajouter un arbitre</h4>
+    <h4 class="center-align">Ajouter un court</h4>
 
     <div class="container">
-        <div class="frame z-depth-3">
+        <div class="frame z-depth-3 s12">
             {{ form_start(form, {'attr': {'class': 'col s12 add_page_form' }}) }}
                 <div class="row col s12">
                     <div class="input-field field center-elem-form">
-                        {{ form_widget(form.firstname, {'attr': {'id': 'firstname', 'placeholder': 'Prénom', 'class':'validate'}}) }}
+                        {{ form_widget(form.name, {'attr':{'placeholder':'Nom' }}) }}
                     </div>
                 </div>
+
                 <div class="row col s12">
                     <div class="input-field field center-elem-form">
-                        {{ form_widget(form.lastname, {'attr': {'id': 'lastname', 'placeholder': 'Nom', 'class':'validate'}}) }}
+                        {{ form_widget(form.number, {'attr':{'placeholder':'Numéro' }}) }}
                     </div>
                 </div>
                 <div class="row col s12">
@@ -35,12 +36,3 @@
         </div>
     </div>
 {% endblock %}
-
-
-{% block javascript %}
-    {{ parent() }}
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-{% endblock %}
-
-

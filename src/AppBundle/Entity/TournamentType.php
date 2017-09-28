@@ -24,7 +24,7 @@ class TournamentType
     /**
      * @var string
      *
-     * @ORM\Column(name="_tournament_type_name", type="string", length=20)
+     * @ORM\Column(name="tournament_type_name", type="string", length=20)
      */
     private $name;
 

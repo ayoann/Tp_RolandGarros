@@ -22,12 +22,14 @@ class TennisMatchRepository extends EntityRepository
             ->addSelect([
                 "scores",
                 "team",
+                "players",
                 "tournament",
                 "referee",
                 "tennisCourt",
             ])
             ->innerJoin("m.teams", "scores")
             ->innerJoin("scores.team", "team")
+            ->innerJoin("team.players", "players")
             ->innerJoin("m.tournament", "tournament")
             ->innerJoin("m.referee", "referee")
             ->innerJoin("m.tennisCourt", "tennisCourt")

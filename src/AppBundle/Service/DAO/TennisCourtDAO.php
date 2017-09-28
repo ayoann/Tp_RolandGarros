@@ -10,10 +10,22 @@ namespace AppBundle\Service\DAO;
 
 
 use AppBundle\Entity\TennisCourt;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class TennisCourtDAO
 {
-    public function saveTennisCourt(TennisCourt $tennisCourt) {}
+    protected $em;
+    public function __construct(ObjectManager $entityManager)
+    {
+        $this->em = $entityManager;
+    }
+
+    public function saveTennisCourt(TennisCourt $tennisCourt) {
+
+        $this->em->persist($tennisCourt);
+        $this->em->flush();
+
+    }
 
     public function getAllTennisCourt() {}
 
