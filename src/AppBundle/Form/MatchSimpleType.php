@@ -30,6 +30,8 @@ class MatchSimpleType extends AbstractType
                 'class' => 'AppBundle\Entity\Tournament',
                 'label' => 'Tournoi',
                 'choice_label' => 'name',
+                'placeholder' => 'Choisir un tournoi',
+                'required' => false,
                 'translation_domain' => 'AppBundle',
                 'query_builder' => function(TournamentRepository $t) {
                     return $t->createQueryBuilder('tr')
@@ -38,6 +40,8 @@ class MatchSimpleType extends AbstractType
             ->add('tennisCourt',   EntityType::class, array(
                 'class' => 'AppBundle\Entity\TennisCourt',
                 'label' => 'Court',
+                'placeholder' => 'Choisir un court',
+                'required' => false,
                 'choice_label' => 'name',
                 'translation_domain' => 'AppBundle',
                 'query_builder' => function(TennisCourtRepository $t) {
@@ -47,6 +51,8 @@ class MatchSimpleType extends AbstractType
             ->add('referee',   EntityType::class, array(
                 'class' => 'AppBundle\Entity\Referee',
                 'label' => 'referee',
+                'placeholder' => 'Choisir un arbitre',
+                'required' => false,
                 'translation_domain' => 'AppBundle',
                 'query_builder' => function(RefereeRepository $r){
                     return $r->createQueryBuilder('r')
