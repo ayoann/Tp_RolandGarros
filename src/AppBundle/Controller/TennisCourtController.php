@@ -16,6 +16,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class TennisCourtController
+ * @package AppBundle\Controller
+ * @Route("admin")
+ */
 class TennisCourtController extends Controller
 {
     /**
@@ -24,13 +29,6 @@ class TennisCourtController extends Controller
      */
     public function addAction(Request $request)
     {
-        // create index's view of the admin area
-        //return $this->render('AppBundle:admin/tennisCourt:addTennisCourt.html.twig');
-
-
-        //=====================================================
-        //=====================================================
-
         $tennisCourt = new TennisCourt();
         $form = $this->createForm(TennisCourtType::class, $tennisCourt);
         $form->handleRequest($request);
