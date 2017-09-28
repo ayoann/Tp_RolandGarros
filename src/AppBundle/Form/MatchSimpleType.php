@@ -35,6 +35,7 @@ class MatchSimpleType extends AbstractType
                 'translation_domain' => 'AppBundle',
                 'query_builder' => function(TournamentRepository $t) {
                     return $t->createQueryBuilder('tr')
+                        ->where('tr.simple = 1')
                         ->orderBy('tr.id', 'ASC');
                 }))
             ->add('tennisCourt',   EntityType::class, array(
