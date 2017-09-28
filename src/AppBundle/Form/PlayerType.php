@@ -28,7 +28,8 @@ class PlayerType extends \Symfony\Component\Form\AbstractType
             ->add('lastname', TextType::class, array('label' => 'Prénom', 'translation_domain' => 'AppBundle'))
             ->add('nationality', EntityType::class, array(
                 'class' => 'AppBundle\Entity\Nationality',
-                'label' => 'Nationalité',
+                'placeholder' => 'Choisir la nationalité',
+                'required' => false,
                 'choice_label' => 'name',
                 'translation_domain' => 'AppBundle',
                 'query_builder' => function (\AppBundle\Repository\NationalityRepository $er) {
@@ -37,8 +38,9 @@ class PlayerType extends \Symfony\Component\Form\AbstractType
                 },
             ))
             ->add('female', ChoiceType::class, array(
-                'label' => 'Sexe',
                 'translation_domain' => 'AppBundle',
+                'placeholder' => 'Choisir le sexe',
+                'required' => false,
                 'choices' => array(
                     'Femme' => true,
                     'Homme' => false

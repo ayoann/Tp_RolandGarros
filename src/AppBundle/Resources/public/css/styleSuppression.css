@@ -1,8 +1,8 @@
 
-  html {
-    font-family: GillSans, Calibri, Trebuchet, sans-serif;
-  }
-     
+html {
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
+}
+
 body{
   list-style-type: none;
   overflow: hidden;
@@ -27,4 +27,20 @@ body{
 
 h3{
   text-align: center
+}
+
+.player-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-disable {
+  cursor: default;
+  opacity: 0.3;
+  box-shadow: none;
+}
+.btn-disable:hover {
+  box-shadow: none;
 }
