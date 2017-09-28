@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/stylePlanifierMatchSimple.css') }}">
+{% endblock %}
+
+{% block nav %}
+    {{ parent() }}
+    <a href="{{ path('app_default_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+
+    {{ form_widget(form.tournamentType) }}
+    {{ form_widget(form.player1) }}
+
+    {{ form_widget(form.player2) }}
+    {{ form_widget(form.courtNumber) }}
+    {{ form_widget(form.referee) }}
+
+    {{ form_end(form) }}
+
+
+
+
+{% endblock %}
+
+
+    {% block javascript %}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('select').material_select();
+            });
+        </script>
+    {% endblock %}

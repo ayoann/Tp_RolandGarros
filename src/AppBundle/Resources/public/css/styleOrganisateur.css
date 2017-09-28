@@ -1,3 +1,42 @@
+body{-webkit-backface-visibility:hidden}
+.cNote{
+    position:fixed;
+    top:0;
+    left:0;
+    min-height:60px;
+    line-height:60px;
+    width:100%;
+    z-index:1000;
+    text-align:center;
+    font-size:18px;color:#fff;
+    background: rgba(0, 0, 0, 0.8);
+    opacity:0;
+    -webkit-transition: opacity 200ms ease-in;
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in;
+    pointer-events: none;
+}
+.cNote:target{
+    opacity:1;
+    pointer-events: auto;
+}
+.cNote .erreur{background-color: rgba(246, 71, 71, 0.7) }
+.cNote .succes{background-color:rgba(3, 201, 169, 0.7)}
+.cNote .attention{background-color: rgba(247, 202, 24, 0.7)}
+.cNote a.cFerme {color:#ffffff;margin:0 10px 0 10px;float:right;}
+
+
+/*
+        <div class="cNote" id="oNote">
+            <div class="erreur"><a href="#fermer" title="Fermer la fenêtre" class="cFerme">X</a> Olala une belle erreur</div>
+        </div>
+
+         <div class="container">
+             <a href="#oNote4">Bouton succès</a>
+        </div>
+*/
+
+
 .line {
     display: flex;
     flex-direction: row;
@@ -13,7 +52,7 @@
 }
 
 .cardTop, .cardBottom{
-    width: 33%;   
+    width: 33%;
     margin-top: 25px;
     border-radius: 10px;
 }
@@ -60,4 +99,31 @@
     width: 100%;
     margin: 5%;
 }
+
+body{-webkit-backface-visibility:hidden}
+.cNote{
+    position:fixed;
+    top:0;
+    left:0;
+    min-height:60px;
+    line-height:60px;
+    width:100%;
+    z-index:1000;
+    text-align:center;
+    font-size:18px;color:#fff;
+    background: rgba(0, 0, 0, 0.8);
+    opacity:0;
+    -webkit-transition: opacity 200ms ease-in;
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in;
+    pointer-events: none;
+}
+.cNote:target{
+    opacity:1;
+    pointer-events: auto;
+}
+.cNote .erreur{background-color: rgba(246, 71, 71, 0.7) }
+.cNote .succes{background-color:rgba(3, 201, 169, 0.7)}
+.cNote .attention{background-color: rgba(247, 202, 24, 0.7)}
+.cNote a.cFerme {color:#ffffff;margin:0 10px 0 10px;float:right;}
 

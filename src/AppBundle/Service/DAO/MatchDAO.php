@@ -9,21 +9,32 @@
 namespace AppBundle\Service\DAO;
 
 
+
+use Doctrine\ORM\EntityManager;
+
 class MatchDAO
 {
-    public function saveMach(){
+    public function __construct(EntityManager $entityManager){
+
+        $this->em = $entityManager;
 
     }
 
-    public function getAllMatchs(){
+
+    public function getAllMAtches(){
 
     }
 
-    public function getAllDuoMatchs(){
+    public function getAllFinishedMatches(){
 
     }
 
-    public function getAllSimpleMarchs(){
+    public function getMatchById(){
 
+    }
+
+    public function saveMatch($match){
+        $this->em->persist($match);
+        $this->em->flush();
     }
 }
