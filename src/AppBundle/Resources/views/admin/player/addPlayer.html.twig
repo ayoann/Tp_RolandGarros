@@ -8,7 +8,7 @@
 {% block nav %}
     {{ parent() }}
     <a href="{{ path('app_admin_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Retour</a>
-    <a href="{{ path('user_logout') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
+    <a href="{{ path('app_default_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
 {% endblock %}
 
 {% block titre %}
@@ -29,12 +29,12 @@
             </div>
             <div class="row col s12">
                 <div class="input-field field center-elem-form">
-                    {{ form_label(form.nationality) }}{{ form_widget(form.nationality) }}
+                    {{ form_widget(form.nationality) }}
                 </div>
             </div>
             <div class="row col s12">
                 <div class="input-field field center-elem-form">
-                    {{ form_label(form.female) }}{{ form_widget(form.female) }}
+                    {{ form_widget(form.female) }}
                 </div>
             </div>
             <div class="row col s12">
