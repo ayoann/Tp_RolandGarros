@@ -23,7 +23,7 @@ class Player extends Person
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="Team", mappedBy="teams")
+     * @ORM\ManyToMany(targetEntity="Team", mappedBy="players")
      */
     private $teams;
 
