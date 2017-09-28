@@ -5,17 +5,17 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TournamentType
+ * TennisCourt
  *
- * @ORM\Table(name="rg_tournament_type")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\TournamentTypeRepository")
+ * @ORM\Table(name="rg_tennis_court")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TennisCourtRepository")
  */
-class TournamentType
+class TennisCourt
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id_tournament_type", type="integer")
+     * @ORM\Column(name="id_tennis_court", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -24,14 +24,14 @@ class TournamentType
     /**
      * @var string
      *
-     * @ORM\Column(name="tournament_type_name", type="string", length=20)
+     * @ORM\Column(name="tennis_court_name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="tournament_type_number", type="integer")
+     * @ORM\Column(name="tennis_court_number", type="integer")
      */
     private $number;
 
@@ -51,7 +51,7 @@ class TournamentType
      *
      * @param string $name
      *
-     * @return TournamentType
+     * @return TennisCourt
      */
     public function setName($name)
     {
@@ -75,7 +75,7 @@ class TournamentType
      *
      * @param integer $number
      *
-     * @return TournamentType
+     * @return TennisCourt
      */
     public function setNumber($number)
     {

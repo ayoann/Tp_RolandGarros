@@ -24,14 +24,14 @@ class Nationality
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=25, nullable=true)
+     * @ORM\Column(name="nationalty_name", type="string", length=25, nullable=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="shortName", type="string", length=5, nullable=true)
+     * @ORM\Column(name="short_name", type="string", length=5, nullable=true)
      */
     private $shortName;
 

@@ -24,7 +24,7 @@ class Score
     /**
      * @var int
      *
-     * @ORM\Column(name="nbSetWin", type="integer")
+     * @ORM\Column(name="nb_set_win", type="integer", nullable=true)
      */
     private $nbSetWin;
 
@@ -41,6 +41,12 @@ class Score
      * @ORM\JoinColumn(name="match_id", referencedColumnName="id_tennis_match")
      */
     private $match;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="win", type="boolean")
+     */
+    private $win = false;
 
     /**
      * Get id
@@ -122,5 +128,23 @@ class Score
     public function getMatch()
     {
         return $this->match;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isWin()
+    {
+        return $this->win;
+    }
+
+    /**
+     * @param boolean $win
+     * @return Score
+     */
+    public function setWin($win)
+    {
+        $this->win = $win;
+        return $this;
     }
 }
