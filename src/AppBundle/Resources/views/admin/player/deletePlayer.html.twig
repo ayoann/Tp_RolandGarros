@@ -7,6 +7,7 @@
 
 {% block nav %}
     {{ parent() }}
+    <a href="{{ path('app_admin_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Retour</a>
     <a href="{{ path('app_default_index') }}" class="waves-effect waves-light deep-orange darken-1 btn">Se déconnecter</a>
 {% endblock %}
 
@@ -17,14 +18,18 @@
     <div class="intro-text">
         <div id="list" class="z-depth-3">
             {% for player in players %}
-                <div class="col s6">
-                    <p>{{ player.firstname }} {{ player.lastname }}</p>
-                </div>
-                {% if player.teams.empty %}
+                <div class="player-container">
                     <div class="col s6">
-                        <a href="{{ path('app_player_deleteplayer', {'id' : player.id}) }}" class="waves-effect red lighten-1 btn btnDelete">Supprimer</a>
+                        <p>{{ player.firstname }} {{ player.lastname }}</p>
                     </div>
-                {% endif %}
+                    {% if player.teams.empty %}
+                        <div class="col s6">
+                            <a href="{{ path('app_player_deleteplayer', {'id' : player.id}) }}" class="waves-effect red lighten-1 btn btnDelete">Supprimer</a>
+                        </div>
+                        {% else %}
+                            <div class="col s6"><p class="btn grey btn-disable">Supprimer</p></div>
+                    {% endif %}
+                </div>
             {% endfor %}
         </div>
     </div>
