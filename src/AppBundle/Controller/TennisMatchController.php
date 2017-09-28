@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: albertyoann
- * Date: 28/09/2017
- * Time: 10:41
- */
+
 
 namespace AppBundle\Controller;
 use AppBundle\Entity\TennisMatch;
-use AppBundle\Form\MatchDuoType;
+use AppBundle\Form\MatchSimpleType;
 use AppBundle\Service\DAO\MatchDAO;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -31,7 +26,7 @@ class TennisMatchController extends Controller
     public function addAction(Request $request)
     {
         $matchDuo = new TennisMatch();
-        $form = $this->createForm(MatchDuoType::class, $matchDuo);
+        $form = $this->createForm(MatchSimpleType::class, $matchDuo);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

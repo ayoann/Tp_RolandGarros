@@ -16,7 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class MatchDuoType extends AbstractType
+class MatchSimpleType extends AbstractType
 {
 
     /**
