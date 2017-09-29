@@ -19,8 +19,13 @@ class TournamentDAO
      */
     private $em;
 
+    /**
+     * TournamentDAO constructor.
+     * @param EntityManager $entityManager
+     */
     public function __construct(EntityManager $entityManager)
     {
+        // keep reference of the EntityManager
         $this->em = $entityManager;
     }
 
@@ -37,6 +42,7 @@ class TournamentDAO
             // get the query
             $query = $repo->getAllTournament();
 
+            // return results find
             return new ArrayCollection($query->getResult());
         } catch (\Exception $exception) {
             throw new \Exception(

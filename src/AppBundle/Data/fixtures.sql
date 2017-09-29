@@ -44,7 +44,7 @@ VALUES
   (3, "R", "Allison", "Davies"),
   (4, "R", "Léo", "Dubois"),
   (5, "R", "Sandrine", "Mazilu"),
-  (6, "R", "MAZILU", "Meunier"),
+  (6, "R", "Mazilu", "Meunier"),
   (7, "R", "Jean-François", "Rizzo"),
   (8, "R", "Michael", "Wili")
 ;

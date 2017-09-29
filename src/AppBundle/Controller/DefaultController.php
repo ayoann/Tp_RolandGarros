@@ -20,16 +20,16 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        // get service of TennisMatch and tournament
+        // get TennisMatch and Tournament access's service
         /** @var MatchDAO $tennisMatchDao */
         $tennisMatchDao = $this->get(MatchDAO::class);
         /** @var TournamentDAO $tournamentDao */
         $tournamentDao = $this->get(TournamentDAO::class);
 
-        // get all the match to display
+        // get all finished matches to display
         $listeOfMatchs = $tennisMatchDao->getAllMatchsScored();
 
-        // get liste of all tournament
+        // get all tournament
         $listeOfTournament = $tournamentDao->getAllTournament();
 
         // create index's view of the application

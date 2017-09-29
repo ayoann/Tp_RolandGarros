@@ -40,7 +40,7 @@ class InitDatabaseCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // 1) drop of the existing database
+        // 1) drop the existing database
         try {
             $command = $this->getApplication()->find(self::DROP_DATABASE);
 
@@ -50,7 +50,7 @@ class InitDatabaseCommand extends Command
             );
 
             $greetInput = new ArrayInput($arguments);
-            $returnCode = $command->run($greetInput, $output);
+            $command->run($greetInput, $output);
         } catch (\Exception $exception) {}
 
         // 2) create the database
@@ -61,7 +61,7 @@ class InitDatabaseCommand extends Command
         );
 
         $greetInput = new ArrayInput($arguments);
-        $returnCode = $command->run($greetInput, $output);
+        $command->run($greetInput, $output);
 
         // 3) update schema
         $command = $this->getApplication()->find(self::UPDATE_DATABASE);
@@ -72,9 +72,9 @@ class InitDatabaseCommand extends Command
         );
 
         $greetInput = new ArrayInput($arguments);
-        $returnCode = $command->run($greetInput, $output);
+        $command->run($greetInput, $output);
 
-        // 4) insert fixtures
+        // 4) insert fixtures SQL
         $command = $this->getApplication()->find(self::IMPORT_DATABASE);
 
         $arguments = array(
@@ -83,6 +83,6 @@ class InitDatabaseCommand extends Command
         );
 
         $greetInput = new ArrayInput($arguments);
-        $returnCode = $command->run($greetInput, $output);
+        $command->run($greetInput, $output);
     }
 }
