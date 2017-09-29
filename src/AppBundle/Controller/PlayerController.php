@@ -33,9 +33,11 @@ class PlayerController extends Controller {
      */
     public function getAction(Request $request) {
 
+        //Get playerDAO
         $playerDAO = $this->get(PlayerDAO::class);
         $players = $playerDAO->getAllPlayersWithTeams();
 
+        //Render view with players list and delete action
         return $this->render('AppBundle:admin/player:deletePlayer.html.twig', array(
             'players' =>$players));
     }
@@ -47,17 +49,21 @@ class PlayerController extends Controller {
      * @Method({"GET", "POST"})
      */
     public function addPlayerAction(Request $request) {
+        //Form creation
         $player = new Player();
         $form = $this->createForm(PlayerType::class, $player);
         $form->handleRequest($request);
 
+        //If form is submitted, redirect to admin page
         if ($form->isSubmitted() && $form->isValid()) {
-
+            //Get playerDAO
             $playerDAO = $this->get(PlayerDAO::class);
             $playerDAO->savePlayer($player);
 
+            // Redirect to admin page
             return $this->redirectToRoute('app_admin_index');
         }
+        //Render form player to add it in database
         return $this->render('AppBundle:admin/player:addPlayer.html.twig', array(
             'player' => $player,
             'form' => $form->createView(),
@@ -73,12 +79,14 @@ class PlayerController extends Controller {
      */
     public function deletePlayerAction($id) {
 
+        //Get playerDAO
         $playerDAO = $this->get(PlayerDAO::class);
         $player = $playerDAO->getPlayerById($id);
 
         if (!$player) {
             throw $this->createNotFoundException('No player found for this id '.$id);
         }
+        //if player exist, remove player with specific id
         else {
             $playerDAO->removePlayer($player);
             return $this->redirectToRoute('app_player_get');
