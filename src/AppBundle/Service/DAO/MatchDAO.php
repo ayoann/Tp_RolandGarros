@@ -19,8 +19,13 @@ class MatchDAO
      */
     private $em;
 
+    /**
+     * MatchDAO constructor.
+     * @param EntityManager $entityManager
+     */
     public function __construct(EntityManager $entityManager)
     {
+        // keep reference of the EntityManager
         $this->em = $entityManager;
     }
 
@@ -47,6 +52,7 @@ class MatchDAO
             // get the query
             $query = $repo->getAllMatchsScored();
 
+            // return results find
             return new ArrayCollection($query->getResult());
         } catch (\Exception $exception) {
             throw new \Exception(

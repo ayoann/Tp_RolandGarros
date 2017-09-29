@@ -16,12 +16,15 @@ class TournamentRepository extends EntityRepository
      */
     public function getAllTournament()
     {
+        // create query builder for the Tournament entity
         $qb = $this->createQueryBuilder("tr");
 
         $qb
+            // ORDER BY statement
             ->orderBy("tr.id", "ASC")
         ;
 
+        // return the query
         return $qb->getQuery();
     }
 }
